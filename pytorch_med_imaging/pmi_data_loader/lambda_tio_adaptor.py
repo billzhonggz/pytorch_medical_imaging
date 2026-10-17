@@ -12,7 +12,10 @@ from torchio import Queue
 from torchio.constants import TYPE
 from torchio.data.subject import Subject
 from torchio.transforms import Transform
-from torchio.typing import TypeCallable
+try:
+    from torchio.types import TypeCallable
+except ImportError:  # TorchIO < 1.2
+    from torchio.typing import TypeCallable
 
 # import torch.multiprocessing
 # torch.multiprocessing.set_sharing_strategy('file_system')
